@@ -1,4 +1,11 @@
 <launch>
+
+
+  <node pkg="leg_detector" type="laser_odom_tf.py" name="laser_odom_tf_broadcaster" output="screen" >
+    <param name="laser_frame_id" value="laser"/>
+    <param name="odom_frame_id" value="odom_combined"/>
+  </node>
+
   <node pkg="leg_detector" type="leg_detector" name="leg_detector"
-        args="scan:=base_scan $(find leg_detector)/config/trained_leg_detector.yaml" output="screen"/>
+        args="scan:=scan $(find leg_detector)/config/trained_leg_detector.yaml" output="screen"/>
 </launch>
